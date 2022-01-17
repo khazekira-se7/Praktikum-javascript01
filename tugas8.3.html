@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Soal 3</title>
+    <style>
+        ul {
+            margin-left: -40px;
+            list-style-type: none;
+        }
+        table {
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+        td, th {
+            border: 1px solid #dddddd;
+            text-align: left;
+            padding: 8px;
+    }
+    </style>
+    <script>
+        function isInputNumber(evt){        
+            var ch = String.fromCharCode(evt.which);
+                if(!(/[0-9]/.test(ch))){
+                    evt.preventDefault();
+                }
+            }
+        function parkir(){
+            let jamsuk = document.getElementById("data1").value;
+            let jamlar = document.getElementById("data2").value;
+            let lama = jamlar - jamsuk;
+            if(lama <= 2){
+                biaya = 3000;
+            }else{
+                let biaya_lebih = 1000
+                biaya = 3000 + ((lama - 2) * 1000)
+            }
+            console.log("Jam Masuk\t: " + jamsuk + " jam" + "\nJam Keluar\t: " + jamlar + " jam" + "\nLama\t\t: " + lama + " jam" + "\nBiaya\t\t: " + biaya + " rupiah");
+            let jam_masuk = document.getElementById("hasil1");
+            jam_masuk.innerHTML = jamsuk + " jam";
+            let jam_keluar = document.getElementById("hasil2");
+            jam_keluar.innerHTML = jamlar + " jam";
+            let lama_parkir = document.getElementById("hasil3");
+            lama_parkir.innerHTML = lama + " jam"
+            let biaya_parkir = document.getElementById("hasil4");
+            biaya_parkir.innerHTML = biaya + " rupiah"
+        }
+    </script>
+</head>
+<body>
+    <h3>Biaya Parkir</h3>
+    <ul>
+        <li><label for="data1">Jam Masuk  :</label><input input type="text" onkeypress="isInputNumber(event)" value="" size="10%" id="data1"></li>
+        <li><label for="data2">Jam Keluar :</label><input input type="text" onkeypress="isInputNumber(event)" value="" size="10%" id="data2"></li>
+    </ul>
+    <button onclick="parkir()">Submit</button>
+    <table>
+        <tr>
+            <td>Jam Masuk</td>
+            <td>Jam Keluar</td>
+            <td>Lama </td>
+            <td>Biaya</td>
+        </tr>
+        <tr>
+            <td><span id="hasil1"></span></td>
+            <td><span id="hasil2"></span></td>
+            <td><span id="hasil3"></span></td>
+            <td><span id="hasil4"></span></td>
+
+        </tr>
+    </table>
+</body>
+</html>

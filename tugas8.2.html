@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Soal 2</title>
+    <script>
+        function isInputNumber(evt){        
+            var ch = String.fromCharCode(evt.which);
+                if(!(/[0-9]/.test(ch))){
+                    evt.preventDefault();
+                }
+            }
+        function konversi(){
+            const konv = 14650;
+            let rupiah = document.getElementById("rp").value;
+            let dollar = rupiah / konv;
+            console.log(rupiah + " Rupiah " + "= " + dollar + " Dollar");
+            let area_hasil = document.getElementById("hasil");
+            area_hasil.innerHTML = dollar + " Dollar"
+        }
+    </script>
+</head>
+<body>
+    <h3>Konversi Rupiah ke Dollar</h3>
+    <input type="text" onkeypress="isInputNumber(event)" value="" size="10%" id="rp">
+    <button onclick="konversi()">Konversi</button>
+    <h4>Hasil : </h4>
+    <span id="hasil"></span> 
+</body>
+</html>

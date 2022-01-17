@@ -1,0 +1,41 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Soal 1</title>
+    <script>
+        function isInputNumber(evt){        
+            var ch = String.fromCharCode(evt.which);
+                if(!(/[0-9]/.test(ch))){
+                    evt.preventDefault();
+                }
+            }
+        function hitung(){
+            const phi = 3.14;
+            let rad = document.getElementById("r1").value;
+            console.log("jari-jari : " + rad);
+            let luas = phi * rad * rad;
+            let kel = 2.0 * phi * rad * rad;
+            console.log("luas : " + luas);
+            console.log("Keliling : " + kel);
+            let hasilluas = document.getElementById("ls");
+            hasilluas.innerHTML ="Luas : " + luas + "\nKeliling : " + kel;
+            let hasilkel = document.getElementById("kl");
+            hasilkel.innerHTML ="Keliling : " + kel + "\nKeliling : " + kel;
+        }
+    </script>
+    
+</head>
+<body>
+    <h3>Menhitung Luas dan Keliling Lingkaran</h3>
+    <input type="text" onkeypress="isInputNumber(event)" value="" size="5%" id="r1">
+    <button onclick="hitung()">Hitung</button>
+    <h4>Hasil : </h4>
+    <span id="ls"></span>
+    <span id="kl"></span>
+
+</body>
+</html>
